@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+    <title>The Pastry Box Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="@alexduloz">
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		-webkit-box-sizing: border-box;
+  			-moz-box-sizing: border-box;
+  			box-sizing: border-box;
+    		}
+    		
+		body {
+			width: 100%;
+			max-width: 800px;
+			padding: 40px 20px 0 20px;
+			margin: 0 auto;
+			padding-top: 40px;
+			font-size: 24px;
+			line-height: 1.4;
+			color: #333;
+			font-family: "Georgia", serif;
+			overflow-y: scroll;
+			}
+		
+		p, ul, ol, blockquote, figure, pre, iframe {
+			margin-bottom: 30px;
+			}
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+			font-family: "Helvetica", sans-serif;
+			margin-bottom: 0;
+			}
+		
+		a {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 2px solid #333;
+			}
+		
+		ul {
+			list-style-type: disc;
+			}
+		
+		ul, ol {
+			padding-left: 25px;
+			}
+			
+		li {
+		 	margin-bottom: 5px;
+		 	}
+		 
+		.thought-content {
+			margin-bottom: 60px;
+			border-bottom: 1px solid #aaa;
+		 	}
+		 
+		.project {
+		 	font-size: 30px;
+		 	margin: 40px 0 60px 0;
+		 	}
+		 	
+		blockquote {
+		 	width: 75%;
+		 	margin-left: auto;
+		 	margin-right: auto;
+		 	color: #777;
+		 	border-left: double 4px #ccc;
+		 	font-style: italic;
+		 	padding-left: 20px;
+		 	font-size: .9em;
+		 	}
+		 
+		figcaption {
+		 	text-align: right;
+		 	}
+		 
+		code {
+		 	border: 1px solid #ccc;
+		 	border-radius: 3px;
+		 	background: #fafafa;
+		 	font-family: monospace;
+		 	font-size: .9em;
+		 	}
+		 
+		pre {
+		 	background: #555;
+		 	color: white;
+		 	border-radius: 5px;
+		 	padding: 10px;
+		 	}
+		 	
+		pre code {
+		 	border: 0;
+		 	background: #555;
+		 	font-size: .8em;
+		 	white-space: pre-wrap;
+		 	}
+
+		.footnote {
+			font-size: .8em;
+			position: relative;
+			color: #777;
+			padding-top: .4em;
+			}
+
+		.footnote:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			background: #777;
+			width: 20%;
+			}
+
+		hr {
+		 	margin-bottom: 40px;
+		 	}
+		 
+		.baked-by {
+		 	font-weight: bold;
+		 	}
+		 	
+    </style>
+  </head>
+  <body>
+    
+    <p class="project">The Pastry Box Project</p>
+
+    
+    <h1>Sunday, 29 June 2014</h1>
+    
+    <p class="baked-by">baked by Josh Lockhart</p>
+    
+    <div class="thought-content">
+       <p>This is the most important advice I can give to a programmer. <em>Code to an interface</em>. It’s a very important concept that is difficult for new programmers to understand. An interface is a contract between my code and your code that states, “if your code provides these methods with these arguments, my code will use your code and do this.” My code does not care <strong>how</strong> your code does what it does so long as your code provides the methods and method arguments that my code expects.</p>
+
+<h2>My code</h2>
+
+<p>I’ve written some code that contains a group of characters and asks each character to say hello.</p>
+
+<pre><code>&lt;?php
+class Meeting
+{
+    protected $characters = array();
+
+    public function addCharacter(Introducible $character)
+    {
+        $this-&gt;characters[] = $character;
+    }
+
+    public function startIntroductions()
+    {
+        foreach ($this-&gt;characters as $character) {
+            $character-&gt;sayHello();
+        }
+    }
+}</code></pre>
+
+<p>My code provides a <code>addCharacter()</code> method that accepts one argument. The argument must implement this <code>Introducible</code> interface.</p>
+
+<pre><code>&lt;?php
+interface Introducible
+{
+    public function sayHello();
+}</code></pre>
+
+<h2>Your code</h2>
+
+<p>You decide to create three characters. The first character is named Calvin.</p>
+
+<pre><code>&lt;?php
+class Calvin implements Introducible
+{
+    public function sayHello()
+    {
+        $this-&gt;putOnMask();
+        $this-&gt;putOnCape();
+        echo &#039;I am STUPENDOUS MAN!&#039;;
+        $this-&gt;runOutOfClassroom();
+    }
+}</code></pre>
+
+<p>The second character is named Wilson.</p>
+
+<pre><code>class Wilson implements Introducible
+{
+    public function sayHello()
+    {
+        $this-&gt;putOnCap();
+        $this-&gt;peekOverFence();
+        echo &#039;Well hidey-ho good neighbor!&#039;;
+    }
+}</code></pre>
+
+<p>The third character is an HTTP server.</p>
+
+<pre><code>class Server implements Introducible
+{
+    public function sayHello()
+    {
+        $this-&gt;boot();
+        $this-&gt;getRequest();
+        echo &#039;HTTP/1.1 418 I&#039;m a teapot&#039;;
+    }
+}</code></pre>
+
+<h2>Our code</h2>
+
+<p>Calvin, Wilson, and the Server are different classes that introduce themselves in drastically different ways. All, however, implement the <code>Introducible</code> interface and are therefore compatible with my <code>Meeting</code> object.</p>
+
+<pre><code>&lt;?php
+// Your code
+$calvin = new Calvin();
+$wilson = new Wilson();
+$server = new Server();
+
+// My code
+$meeting = new Meeting();
+$meeting-&gt;addCharacter($calvin);
+$meeting-&gt;addCharacter($wilson);
+$meeting-&gt;addCharacter($server);
+$meeting-&gt;startIntroductions();</code></pre>
+
+<p>Coding to an interface makes code extensible and delegates implementation details to otherwise unrelated code written by other developers. Interfaces allow two or more otherwise unrelated objects to communicate with each other. For example, anyone can create a character for my <code>Meeting</code> class. I don’t care what the character is, how the character is coded, or what the character can do. All I require is that the character be able to say hello by implementing the <code>Introducible</code> interface.</p>
+    </div>
+  
+  </body>
+</html>

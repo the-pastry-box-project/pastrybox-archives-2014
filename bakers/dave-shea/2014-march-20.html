@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+    <title>The Pastry Box Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="@alexduloz">
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		-webkit-box-sizing: border-box;
+  			-moz-box-sizing: border-box;
+  			box-sizing: border-box;
+    		}
+    		
+		body {
+			width: 100%;
+			max-width: 800px;
+			padding: 40px 20px 0 20px;
+			margin: 0 auto;
+			padding-top: 40px;
+			font-size: 24px;
+			line-height: 1.4;
+			color: #333;
+			font-family: "Georgia", serif;
+			overflow-y: scroll;
+			}
+		
+		p, ul, ol, blockquote, figure, pre, iframe {
+			margin-bottom: 30px;
+			}
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+			font-family: "Helvetica", sans-serif;
+			margin-bottom: 0;
+			}
+		
+		a {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 2px solid #333;
+			}
+		
+		ul {
+			list-style-type: disc;
+			}
+		
+		ul, ol {
+			padding-left: 25px;
+			}
+			
+		li {
+		 	margin-bottom: 5px;
+		 	}
+		 
+		.thought-content {
+			margin-bottom: 60px;
+			border-bottom: 1px solid #aaa;
+		 	}
+		 
+		.project {
+		 	font-size: 30px;
+		 	margin: 40px 0 60px 0;
+		 	}
+		 	
+		blockquote {
+		 	width: 75%;
+		 	margin-left: auto;
+		 	margin-right: auto;
+		 	color: #777;
+		 	border-left: double 4px #ccc;
+		 	font-style: italic;
+		 	padding-left: 20px;
+		 	font-size: .9em;
+		 	}
+		 
+		figcaption {
+		 	text-align: right;
+		 	}
+		 
+		code {
+		 	border: 1px solid #ccc;
+		 	border-radius: 3px;
+		 	background: #fafafa;
+		 	font-family: monospace;
+		 	font-size: .9em;
+		 	}
+		 
+		pre {
+		 	background: #555;
+		 	color: white;
+		 	border-radius: 5px;
+		 	padding: 10px;
+		 	}
+		 	
+		pre code {
+		 	border: 0;
+		 	background: #555;
+		 	font-size: .8em;
+		 	white-space: pre-wrap;
+		 	}
+
+		.footnote {
+			font-size: .8em;
+			position: relative;
+			color: #777;
+			padding-top: .4em;
+			}
+
+		.footnote:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			background: #777;
+			width: 20%;
+			}
+
+		hr {
+		 	margin-bottom: 40px;
+		 	}
+		 
+		.baked-by {
+		 	font-weight: bold;
+		 	}
+		 	
+    </style>
+  </head>
+  <body>
+    
+    <p class="project">The Pastry Box Project</p>
+
+    
+    <h1>Thursday, 20 March 2014</h1>
+    
+    <p class="baked-by">baked by Dave Shea</p>
+    
+    <div class="thought-content">
+       <p>CSS has seen a whole lot of significant ten year milestones lately.</p><p>Ten years ago, wired.com <a href="http://stopdesign.com/archive/2012/10/11/ten-years-later.html">rolled out</a> the first commercial all-CSS redesign. Ten years ago, the CSS Zen Garden <a href="http://mezzoblue.com/archives/2013/05/07/10_years/">launched</a>. Ten years ago, we didn’t have fundamental pieces of our development toolchain so we had to invent <a href="http://stuffandnonsense.co.uk/blog/about/ten-years-of-sliding-doors-of-css">technique</a> after <a href="http://alistapart.com/blog/post/ten-years-ago-in-ala-faux-columns-and-elastic-design">technique</a> simply to do our jobs.</p><p>Though they were once fundamental, not all of these concepts stood the test of time. I had a reminder very recently that one of my own contributions <a href="http://alistapart.com/blog/post/ten-years-ago-in-a-list-apart-css-sprites-image-slicings-kiss-of-death">just added a second digit to its age</a>, so before it's also relegated to historical footnote status, I’d like to eulogize CSS Sprites.</p><h2>Inception</h2><p>It may be hard to believe now, but there was a time when custom web type were a pipe dream. Typography was fairly static thanks to a <a href="http://en.wikipedia.org/wiki/Web_typography#Microsoft.27s_Core_fonts_for_the_Web">small handful of fonts</a> that were actually considered safe to use.</p><p>The only way to add non-standard type and effects to a site was by pre- rendering it in Photoshop and saving to an image. The <code>img</code> tag was the best way to load that image into your page at first, but in time various <a href="http://css-tricks.com/examples/ImageReplacement/">image replacement techniques</a> were invented to allow control in CSS and use semantic markup; they were seen as an improvement.</p><p>A long-forgotten problem plagued this method: when images were used as navigation a browser had to go back to the server and fetch the new image file on hover, causing a flash of the blank image area while it loaded.</p><p>A developer named Petr Stanicek&nbsp;<a href="http://wellstyled.com/css-nopreload-rollovers.html">demoed</a> a way of including multiple states of a rollover into a single background image for the sake of eliminating this flash. However this also assumed navigation text was set as HTML text which, as we’ve already established, was a limiting prospect at the time.</p><p>And so CSS Sprites came about as a riff on combining the fast preload concept with image replacement. With those two pieces, we could now include in the same image both before and after states for all navigation elements and get a result that solved both the limited typography and the flashing image problem in one go.</p><h2>Legacy</h2><p>CSS Sprites continue to live on, thanks at least in part to unintended consequences.</p><p>Five years after publication, I discovered that very large sites were <a href="http://www.flickr.com/photos/mezzoblue/3217540317/">using Sprites</a> in a way that, at the time, I thought was totally insane. I completely missed one of the benefits of Sprites, even years after writing the original article.</p><p>File size has always been a priority for web performance but in 2004 it was far less clear that number of requests was also a factor in load times. Big companies looking to trim every last byte didn’t overlook this however, and Sprites evolved into a useful tool for delivering interface elements all at once.</p><h2>Future</h2><p>When I look forward, I’m fairly certain we’re nearing the end of the usefulness of CSS Sprites for a few reasons.</p><p>Sprite maps largely consist of UI images and icons, but it’s increasingly preferable to build a UI without the use of bitmap images. You may have noticed that CSS has become a lot more capable in the past ten years, and many interface elements and effects that were once possible only with pre-rendered Photoshop effects can now be delivered without using images at all. And with icon web fonts and SVG, we’re now able to deliver icons as vector outlines instead of bitmaps.</p><p>But even if the specific technique as it was originally defined for bitmaps is becoming less useful, the idea of Sprites will likely live on. Folders full of SVG files share the same problem as images, so <a href="http://css-tricks.com/svg-sprites-use-better-icon-fonts/">sprited vectors</a> seems like a technique we’ll be using in the near future.</p><p>Either way, I think the story of CSS Sprites is a great illustration of how the early days of building with CSS worked. Web developers had big holes in our toolchain because the specifications were limited, support for them even more so, and browser market share and development cycle realities didn’t appear to promise any meaningful fixes for the situation.</p><p>So we invented our tools. We collaborated in blog posts and comments to evolve our ideas, with each new technique building on top of earlier ideas and solutions. We dreamt of a day where specifications would propose exciting new ideas and browsers would update frequently so we could get around to what we're really here to do: create great sites for our users.</p><p>It took a while, but we’ve finally made it.</p><p>(PS: Bonus instant nostalgia hit for other old timers: Glish, Noodle Incident, Blue Robot, MaxDesign. Remember those?)</p>
+    </div>
+  
+  </body>
+</html>

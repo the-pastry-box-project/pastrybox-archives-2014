@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+    <title>The Pastry Box Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="@alexduloz">
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		-webkit-box-sizing: border-box;
+  			-moz-box-sizing: border-box;
+  			box-sizing: border-box;
+    		}
+    		
+		body {
+			width: 100%;
+			max-width: 800px;
+			padding: 40px 20px 0 20px;
+			margin: 0 auto;
+			padding-top: 40px;
+			font-size: 24px;
+			line-height: 1.4;
+			color: #333;
+			font-family: "Georgia", serif;
+			overflow-y: scroll;
+			}
+		
+		p, ul, ol, blockquote, figure, pre, iframe {
+			margin-bottom: 30px;
+			}
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+			font-family: "Helvetica", sans-serif;
+			margin-bottom: 0;
+			}
+		
+		a {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 2px solid #333;
+			}
+		
+		ul {
+			list-style-type: disc;
+			}
+		
+		ul, ol {
+			padding-left: 25px;
+			}
+			
+		li {
+		 	margin-bottom: 5px;
+		 	}
+		 
+		.thought-content {
+			margin-bottom: 60px;
+			border-bottom: 1px solid #aaa;
+		 	}
+		 
+		.project {
+		 	font-size: 30px;
+		 	margin: 40px 0 60px 0;
+		 	}
+		 	
+		blockquote {
+		 	width: 75%;
+		 	margin-left: auto;
+		 	margin-right: auto;
+		 	color: #777;
+		 	border-left: double 4px #ccc;
+		 	font-style: italic;
+		 	padding-left: 20px;
+		 	font-size: .9em;
+		 	}
+		 
+		figcaption {
+		 	text-align: right;
+		 	}
+		 
+		code {
+		 	border: 1px solid #ccc;
+		 	border-radius: 3px;
+		 	background: #fafafa;
+		 	font-family: monospace;
+		 	font-size: .9em;
+		 	}
+		 
+		pre {
+		 	background: #555;
+		 	color: white;
+		 	border-radius: 5px;
+		 	padding: 10px;
+		 	}
+		 	
+		pre code {
+		 	border: 0;
+		 	background: #555;
+		 	font-size: .8em;
+		 	white-space: pre-wrap;
+		 	}
+
+		.footnote {
+			font-size: .8em;
+			position: relative;
+			color: #777;
+			padding-top: .4em;
+			}
+
+		.footnote:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			background: #777;
+			width: 20%;
+			}
+
+		hr {
+		 	margin-bottom: 40px;
+		 	}
+		 
+		.baked-by {
+		 	font-weight: bold;
+		 	}
+		 	
+    </style>
+  </head>
+  <body>
+    
+    <p class="project">The Pastry Box Project</p>
+
+    
+    <h1>Friday, 7 March 2014</h1>
+    
+    <p class="baked-by">baked by Scott Jehl</p>
+    
+    <div class="thought-content">
+       <p>Where I work, we spend a lot of time talking about how to make websites that work “everywhere” and work even better in favorable browsing conditions. The term often used to describe this approach is “Progressive Enhancement,” or “PE”—and lately, I’ve noticed it may have an unfair stigma attached.</p><p>I sometimes hear concerns from developers that building with PE will hold them back from innovating and “moving the web forward,” because it requires spending a lot of time making things work in old or obscure browsers that aren’t presumed to be common within their audiences.</p><p>I find the opposite to be true. For us, building with Progressive Enhancement moves almost all of our development time and costs to <em>newer</em> browsers, not older ones. Perhaps that’s because our approach to PE has evolved beyond a mere <a href="http://en.wikipedia.org/wiki/Separation_of_presentation_and_content">separation of concerns</a> to a more controlled <a href="http://alistapart.com/article/testdriven">test-driven application of technologies</a>—which is a rather abstruse way of saying that we just serve something basic and useful to everyone and then <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">heavily qualify everything we do from there</a>. This means that ancient or under-featured browsers like IE 6 or BlackBerry 5 still have access to the core content and functionality, but newer code doesn’t reach them and potentially break their experience. There are so many new, popular browsers for us to care about nowadays that we rarely have time to test in older/unqualified browsers until the late stages of a project, but when we do, things frequently work as expected—which is to say very simply, and that’s often appropriate anyhow.</p><p>The hard part of building with Progressive Enhancement isn’t supporting older browsers, it’s supporting <em>newer</em> browsers. But that’s hard no matter the approach. I suspect that building <em>without</em> PE would actually increase time spent fiddling with older browsers, that is, as long as basic access remains a priority. But in fairness, I can only speak to the approach that works for us. Progressive Enhancement frees us to focus on the costs of building features for modern browsers, without worrying much about leaving anyone out. With a strongly qualified codebase, older browser support comes nearly for free.</p>
+    </div>
+  
+  </body>
+</html>

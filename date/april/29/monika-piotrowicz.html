@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+    <title>The Pastry Box Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="@alexduloz">
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		-webkit-box-sizing: border-box;
+  			-moz-box-sizing: border-box;
+  			box-sizing: border-box;
+    		}
+    		
+		body {
+			width: 100%;
+			max-width: 800px;
+			padding: 40px 20px 0 20px;
+			margin: 0 auto;
+			padding-top: 40px;
+			font-size: 24px;
+			line-height: 1.4;
+			color: #333;
+			font-family: "Georgia", serif;
+			overflow-y: scroll;
+			}
+		
+		p, ul, ol, blockquote, figure, pre, iframe {
+			margin-bottom: 30px;
+			}
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+			font-family: "Helvetica", sans-serif;
+			margin-bottom: 0;
+			}
+		
+		a {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 2px solid #333;
+			}
+		
+		ul {
+			list-style-type: disc;
+			}
+		
+		ul, ol {
+			padding-left: 25px;
+			}
+			
+		li {
+		 	margin-bottom: 5px;
+		 	}
+		 
+		.thought-content {
+			margin-bottom: 60px;
+			border-bottom: 1px solid #aaa;
+		 	}
+		 
+		.project {
+		 	font-size: 30px;
+		 	margin: 40px 0 60px 0;
+		 	}
+		 	
+		blockquote {
+		 	width: 75%;
+		 	margin-left: auto;
+		 	margin-right: auto;
+		 	color: #777;
+		 	border-left: double 4px #ccc;
+		 	font-style: italic;
+		 	padding-left: 20px;
+		 	font-size: .9em;
+		 	}
+		 
+		figcaption {
+		 	text-align: right;
+		 	}
+		 
+		code {
+		 	border: 1px solid #ccc;
+		 	border-radius: 3px;
+		 	background: #fafafa;
+		 	font-family: monospace;
+		 	font-size: .9em;
+		 	}
+		 
+		pre {
+		 	background: #555;
+		 	color: white;
+		 	border-radius: 5px;
+		 	padding: 10px;
+		 	}
+		 	
+		pre code {
+		 	border: 0;
+		 	background: #555;
+		 	font-size: .8em;
+		 	white-space: pre-wrap;
+		 	}
+
+		.footnote {
+			font-size: .8em;
+			position: relative;
+			color: #777;
+			padding-top: .4em;
+			}
+
+		.footnote:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			background: #777;
+			width: 20%;
+			}
+
+		hr {
+		 	margin-bottom: 40px;
+		 	}
+		 
+		.baked-by {
+		 	font-weight: bold;
+		 	}
+		 	
+    </style>
+  </head>
+  <body>
+    
+    <p class="project">The Pastry Box Project</p>
+
+    
+    <h1>Tuesday, 29 April 2014</h1>
+    
+    <p class="baked-by">baked by Monika Piotrowicz</p>
+    
+    <div class="thought-content">
+       <p>Web developers can be a pretty outspoken bunch. Get a few of us in a room and it’s not unusual for someone to start talking about a new project they’re working on, or start debating various libraries or best practices. &nbsp;And while there’s a lot we do talk about, not every topic gets the same attention. Web accessibility is one of those topics.</p><p>Paul Lewis recently wrote that web accessibility was one of the “<a href="http://aerotwist.com/blog/web-components-and-three-unsexy-pillars/">3 unsexy pillars of web dev</a>” (the others being security and performance) because it’s very rarely something that clients really care about (and will pay for). I’ve seen this to be true and think it’s one reason why web accessibility is often seemingly ignored by developers. We may think that it’s an “expert’s job” so we’re exempt from learning about it, or that our sites don’t need to cater to that wide an audience (<a href="http://www.cdc.gov/nchs/data/series/sr_10/sr10_256.pdf">statistics be damned</a>!). I know I’ve been guilty of assuming both at one point or another. But while these reasons seem pretty flaky, my goal here isn’t to scold anyone. I think most of our silence boils down to the fact that many developers just don’t know much about web accessibility, and we may not even realize that we’re behind.</p><p>Development is constantly changing, but over the years, I’ve found a way to (at least somewhat) keep up. I’ve invested countless hours learning and re-learning CSS3 syntax, or reading about framework after framework for building JS applications, and yet until just over a year ago, I had never even heard of WAI-ARIA or bothered loading up the screen reader that’s built into both my laptop and phone. My (very poor) excuse was that it just&nbsp;didn’t occur to me to look into either, and without much discussion from the larger dev community, I didn’t know I was missing anything.</p><p>Oddly enough, it was only through a client’s project requirement that I finally started looking into accessibility, and I realized I had a lot to catch up on. Slowly, I read through documentation, learned about keyboard navigation and screen readers, and broke some of my bad habits that were hurting the accessibility of my work. Sorting through all the articles and techniques, the biggest lesson for me was appreciating how some of the seemingly trivial decisions I make as a developer actually have a huge impact on who is able and unable to use what I build. Suddenly I understood how foregoing basics like image alt text and proper form labels meant certain users would be excluded from functionality. On the other hand, I also learned that by being more thorough with my code, building responsively, and leveraging tools like ARIA meant functionality would be available to more users.</p><p>Though that particular project is long over, learning about web accessibility will be an on-going effort for me. Just like keeping up with new CSS syntax and JS frameworks mentioned earlier, more and more I view web accessibility as a key strength of any well-rounded developer, and part of that means participating in the dev community to increase its awareness as such. Although there’s still a ways to go, I’m encouraged by the recent increase in discussion around accessibility, from its role in new technologies like <a href="http://www.polymer-project.org/articles/accessible-web-components.html">web components</a>, to several recent <a href="http://alistapart.com/article/designing-for-easy-interaction">blog</a> <a href="http://www.sitepoint.com/learning-to-focus/">posts</a>. Better yet, new demos and tools are cropping up to provide developers with real-world <a href="https://github.com/paypal/bootstrap-accessibility-plugin">implementations</a> and <a href="http://quailjs.org/">improved workflows</a>.</p><p>Now is as good a time as ever to start learning about accessibility for those who are still unfamiliar, and there are <a href="http://www.w3.org/standards/webdesign/accessibility">countless</a> <a href="http://webaim.org/intro/">resources</a> <a href="http://www.w3.org/standards/webdesign/accessibility">to </a>help <a href="http://a11yproject.com/">get</a> <a href="http://blog.paciellogroup.com/">started</a>. Given its purpose and power to build an inclusive audience, there’s no excuse for us to ignore this “unsexy pillar” any more, and as we learn more we can contribute our own experiences back to the growing dialogue. This will encourage still more developers to finally catch up as web accessibility becomes a regular part of our discussions, debates, and best practices. Who knows, maybe as a group, developers can even become outspoken about web accessibility.</p>
+    </div>
+  
+  </body>
+</html>

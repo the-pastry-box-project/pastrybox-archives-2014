@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+    <title>The Pastry Box Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="@alexduloz">
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		-webkit-box-sizing: border-box;
+  			-moz-box-sizing: border-box;
+  			box-sizing: border-box;
+    		}
+    		
+		body {
+			width: 100%;
+			max-width: 800px;
+			padding: 40px 20px 0 20px;
+			margin: 0 auto;
+			padding-top: 40px;
+			font-size: 24px;
+			line-height: 1.4;
+			color: #333;
+			font-family: "Georgia", serif;
+			overflow-y: scroll;
+			}
+		
+		p, ul, ol, blockquote, figure, pre, iframe {
+			margin-bottom: 30px;
+			}
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+			font-family: "Helvetica", sans-serif;
+			margin-bottom: 0;
+			}
+		
+		a {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 2px solid #333;
+			}
+		
+		ul {
+			list-style-type: disc;
+			}
+		
+		ul, ol {
+			padding-left: 25px;
+			}
+			
+		li {
+		 	margin-bottom: 5px;
+		 	}
+		 
+		.thought-content {
+			margin-bottom: 60px;
+			border-bottom: 1px solid #aaa;
+		 	}
+		 
+		.project {
+		 	font-size: 30px;
+		 	margin: 40px 0 60px 0;
+		 	}
+		 	
+		blockquote {
+		 	width: 75%;
+		 	margin-left: auto;
+		 	margin-right: auto;
+		 	color: #777;
+		 	border-left: double 4px #ccc;
+		 	font-style: italic;
+		 	padding-left: 20px;
+		 	font-size: .9em;
+		 	}
+		 
+		figcaption {
+		 	text-align: right;
+		 	}
+		 
+		code {
+		 	border: 1px solid #ccc;
+		 	border-radius: 3px;
+		 	background: #fafafa;
+		 	font-family: monospace;
+		 	font-size: .9em;
+		 	}
+		 
+		pre {
+		 	background: #555;
+		 	color: white;
+		 	border-radius: 5px;
+		 	padding: 10px;
+		 	}
+		 	
+		pre code {
+		 	border: 0;
+		 	background: #555;
+		 	font-size: .8em;
+		 	white-space: pre-wrap;
+		 	}
+
+		.footnote {
+			font-size: .8em;
+			position: relative;
+			color: #777;
+			padding-top: .4em;
+			}
+
+		.footnote:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			background: #777;
+			width: 20%;
+			}
+
+		hr {
+		 	margin-bottom: 40px;
+		 	}
+		 
+		.baked-by {
+		 	font-weight: bold;
+		 	}
+		 	
+    </style>
+  </head>
+  <body>
+    
+    <p class="project">The Pastry Box Project</p>
+
+    
+    <h1>Monday, 19 May 2014</h1>
+    
+    <p class="baked-by">baked by Addy Osmani</p>
+    
+    <div class="thought-content">
+       <p>Whether it’s a client or server-side component, a Node module or a piece of visual UI, components that are <a href="http://addyosmani.com/largescalejavascript/">large</a> are inherently more complex to maintain than those that are small. </p><p>In fact, the secret to efficiently building ‘large’ things is generally to avoid building them in the first place. Instead, compose your large thing out of smaller, more focused pieces. This makes it easier to see how the small thing fits within the broader scope of your large thing. These concepts apply to existing ways of doing things, including Web Components.</p><p>Focus and modularity has worked to some degree of success in the Node community and is equally as valuable across other parts of our field for a few reasons:</p><ul><li><p><b>Smaller APIs</b> are easier to learn and teach to others. This is generally helped if you <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">do one thing and do it well</a>.</p></li><li><p><b>Code reuse</b> can save you time. Reusability in itself is often a side-product of writing code that happens to be well structured and well defined. It does help when you can just drop in an existing component vs. writing one from scratch. You’re likely to discover flaws in the original design that you improve on over time, but the more your component is reused, the more you fix these flaws, improving reusability.</p></li><li><p><b>Improved composability.</b> This means new components can be built by extending existing ones. This again allows for a great deal of code reuse, avoiding re-implementation of the same functionality across projects. &nbsp;</p></li><li><p><b>An increase in maintainability</b> is possible thanks to a reduction in complexity. By splitting out a component into something smaller, it’s generally easier to test and document. Keeping your component source DRY can help.</p></li><li><p><b>Separation of concerns.</b> If each component addresses a specific concern, this simplifies the update cycle as one component doesn’t always need to know the details of others. Note that separation of concerns does not always equate to separation of technologies. Keeping logical, related parts of a system together can make it more easy to understand and maintain.</p></li><li><p><b>Simplified debugging.</b> This is more implementation specific, but granularity should make it more straight-forward to identify and fix problems by making it simpler to determine the true source of errors.</p></li><li><p><b>Easier understanding of your large system </b>as you’ve broken it into smaller, more well grained pieces</p></li></ul><p>On the whole, approaching components with modularity and a focus in mind increases reuse, eases maintenance and improves extensibility. Diligence does need to be taken with making something ‘focused’ however. </p><p>If you’re building components to be shared with the community or even just your team, ask yourself if features in your API will be used by 90% of users. If so, it’s likely pretty core functionality and should stay. If a feature it going to be used by the 10%, it should probably be a separate component or module. Avoid code bloat.</p><p>Some may read this and think, “Great!.. but practically speaking modularity from the get-go is not always possible”. This is fine. Some developers find it more feasible to build an integrated solution first and then extract out useful modules. This can save time on public interfaces that might turn out to be wrong, but ultimately leads to the same end-goal: having a collection of components that can be reused in future projects. </p><p>When you’re trying to build a component, whether it’s visual or non-visual try to keep in mind four things:</p><p>Keep it (F)ocused.<br>Keep it (I)ndependent.<br>Keep it (R)eusable.<br>Keep it (S)mall.</p><p>or in short <strong>FIRS</strong>.</p><p><i>With thanks to Pascal Hartig and Stephen Sawchuk for their reviews.</i></p>
+    </div>
+  
+  </body>
+</html>
